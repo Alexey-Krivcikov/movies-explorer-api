@@ -2,9 +2,12 @@ const mongoose = require("mongoose");
 // Импорт модели User
 const Movie = require("../models/movie");
 // Импорт сообщений ошибок
-const VALIDATION_ERROR_MESSAGE = require("../utils/constants");
-const FILM_NOT_FOUND_ERROR_MESSAGE = require("../utils/constants");
-const FORBIDDEN_ERROR_MESSAGE = require("../utils/constants");
+const {
+  VALIDATION_ERROR_MESSAGE,
+  FILM_NOT_FOUND_ERROR_MESSAGE,
+  FORBIDDEN_ERROR_MESSAGE,
+} = require("../utils/constants");
+
 // Импорт классов ошибок
 const BadRequestError = require("../errors/bad-req-err");
 const ForbiddenError = require("../errors/forbidden-err");

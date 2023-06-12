@@ -1,6 +1,5 @@
 const movieRouter = require("express").Router();
 
-const { Router } = require("express");
 const {
   getMovies,
   createMovie,

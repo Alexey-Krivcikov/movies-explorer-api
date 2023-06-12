@@ -1,5 +1,5 @@
 const { celebrate, Joi } = require("celebrate");
-const regex = require("../../utils/constants");
+const { regEx } = require("../../utils/constants");
 
 const movieDataValidator = celebrate({
   body: Joi.object().keys({
@@ -8,9 +8,9 @@ const movieDataValidator = celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required().min(4),
     description: Joi.string().required(),
-    image: Joi.string().required().regex(regex),
-    trailerLink: Joi.string().required().regex(regex),
-    thumbnail: Joi.string().required().regex(regex),
+    image: Joi.string().required().regex(regEx),
+    trailerLink: Joi.string().required().regex(regEx),
+    thumbnail: Joi.string().required().regex(regEx),
     movieId: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),

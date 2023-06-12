@@ -10,7 +10,7 @@ const LOGIN_MESSAGE = "Авторизация успешна";
 const LOGOUT_MESSAGE = "Выход из профиля";
 const SERVER_ERROR_MESSAGE = "На сервере произошла ошибка";
 
-const regex = /https?:\/\/w{0,3}\.?[\w0-9-]{1,10}\.\w{2,3}[\w\d\-._~:/?#[\]@!$&'()*+,;=]{0,}/m;
+const regEx = /https?:\/\/w{0,3}\.?[\w0-9-]{1,10}\.\w{2,3}[\w\d\-._~:/?#[\]@!$&'()*+,;=]{0,}/m;
 module.exports = {
   AUTHENTICATION_ERROR_MESSAGE,
   VALIDATION_ERROR_MESSAGE,
@@ -23,5 +23,5 @@ module.exports = {
   LOGOUT_MESSAGE,
   UNAUTHORIZED_ERROR_MESSAGE,
   SERVER_ERROR_MESSAGE,
-  regex,
+  regEx,
 };

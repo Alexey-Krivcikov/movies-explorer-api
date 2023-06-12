@@ -1,4 +1,4 @@
-const SERVER_ERROR_MESSAGE = require("../utils/constants");
+const { SERVER_ERROR_MESSAGE } = require("../utils/constants");
 
 const errorHandler = ((err, req, res, next) => {
   // если у ошибки нет статуса, выставляем 500
@@ -14,6 +14,4 @@ const errorHandler = ((err, req, res, next) => {
     });
   next();
 });
-module.exports = {
-  errorHandler,
-};
+module.exports = errorHandler;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 // Импорт модулей bcryptjs и jsonwebtoken
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 // Импорт классов ошибок
 const BadRequestError = require("../errors/bad-req-err");
 const ConflictError = require("../errors/conflict-err");
@@ -9,12 +9,15 @@ const NotFoundError = require("../errors/not-found-err");
 // Импорт модели User
 const User = require("../models/user");
 // Импорт переменных
-const LOGOUT_MESSAGE = require("../utils/constants");
-const LOGIN_MESSAGE = require("../utils/constants");
-const USER_NOT_FOUND_ERROR_MESSAGE = require("../utils/constants");
-const VALIDATION_ERROR_MESSAGE = require("../utils/constants");
-const CONFLICT_ERROR_MESSAGE = require("../utils/constants");
-const USERID_ERROR_MESSAGE = require("../utils/constants");
+const {
+  LOGOUT_MESSAGE,
+  LOGIN_MESSAGE,
+  USER_NOT_FOUND_ERROR_MESSAGE,
+  VALIDATION_ERROR_MESSAGE,
+  CONFLICT_ERROR_MESSAGE,
+  USERID_ERROR_MESSAGE,
+} = require("../utils/constants");
+
 const { NODE_ENV, JWT_SECRET, JWT_SECRET_DEV } = require("../utils/config");
 // Функция возвращает информацию о пользователе (email и имя)
 module.exports.getCurrentUser = (req, res, next) => {
@@ -57,12 +60,12 @@ module.exports.updateUserInfo = (req, res, next) => {
 };
 // Функция регистрации, создаёт пользователя
 module.exports.createUser = (req, res, next) => {
-  const { name, password, email } = req.body;
+  const { email, password, name } = req.body;
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
-      name,
       email,
       password: hash,
+      name,
     }))
     .then((user) => res.status(201).send({ data: user }))
     .catch((err) => {
