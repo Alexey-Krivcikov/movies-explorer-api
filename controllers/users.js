@@ -95,7 +95,10 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       })
-        .send({ message: LOGIN_MESSAGE });
+        .send({
+          message: LOGIN_MESSAGE,
+          token,
+        });
     })
     .catch(next);
 };
